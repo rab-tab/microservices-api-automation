@@ -55,69 +55,161 @@ CI
 GitHub Actions / Jenkins / GitLab CI
 
 📂 3. Overall Folder Structure
-microservices-api-automation/
+api-automation/
+│
+├── config/
+│   ├── application-dev.yml
+│   ├── application-qa.yml
+│   ├── application-staging.yml
+│   ├── kubernetes-config/
+│   │   ├── gateway-url.json
+│   │   ├── service-discovery.json
+│   └── docker-compose-test.yml
+│
+├── testcontainers/
+│   ├── kafka-testcontainer.java
+│   ├── mongo-testcontainer.java
+│   ├── redis-testcontainer.java
+│   └── zipkin-testcontainer.java
 │
 ├── src/
-│   ├── main/java/
-│   │   ├── config/
-│   │   │   ├── EnvironmentConfig.java
-│   │   │   └── ServiceConfig.java
-│   │   │
-│   │   ├── core/
-│   │   │   ├── BaseTest.java
-│   │   │   ├── RestClient.java
-│   │   │   ├── KafkaClient.java
-│   │   │   └── ZipkinClient.java
-│   │   │
-│   │   ├── utils/
-│   │   │   ├── JsonUtil.java
-│   │   │   ├── AssertUtil.java
-│   │   │   └── TestDataUtil.java
-│   │   │
-│   │   ├── pojo/
-│   │   │   ├── product/
-│   │   │   ├── order/
-│   │   │   └── inventory/
-│   │   │
-│   │   └── testdata/
-│   │       ├── product-test-data.json
-│   │       └── order-test-data.json
+│   ├── main/
+│   │   └── java/
+│   │       ├── core/
+│   │       │   ├── RestClient.java
+│   │       │   ├── RequestBuilder.java
+│   │       │   ├── ResponseValidator.java
+│   │       │   ├── BaseService.java
+│   │       │   └── ApiLogger.java
+│   │       │
+│   │       ├── config/
+│   │       │   ├── ConfigManager.java
+│   │       │   ├── Environment.java
+│   │       │   └── ServiceEndpoints.java
+│   │       │
+│   │       ├── utils/
+│   │       │   ├── JsonUtil.java
+│   │       │   ├── SchemaUtil.java
+│   │       │   ├── RetryUtil.java
+│   │       │   ├── DateUtil.java
+│   │       │   ├── RandomUtil.java
+│   │       │   └── FileUtil.java
+│   │       │
+│   │       ├── tracing/
+│   │       │   ├── ZipkinClient.java
+│   │       │   ├── TraceIdGenerator.java
+│   │       │   └── TracePropagationInterceptor.java
+│   │       │
+│   │       ├── pojo/
+│   │       │   ├── requests/
+│   │       │   │   ├── CreateProductRequest.java
+│   │       │   │   ├── PlaceOrderRequest.java
+│   │       │   │   └── UpdateInventoryRequest.java
+│   │       │   │
+│   │       │   ├── responses/
+│   │       │   │   ├── ProductResponse.java
+│   │       │   │   ├── OrderResponse.java
+│   │       │   │   └── InventoryResponse.java
+│   │       │   │
+│   │       │   └── events/
+│   │       │       ├── OrderCreatedEvent.java
+│   │       │       └── InventoryUpdatedEvent.java
+│   │       │
+│   │       ├── testdata/
+│   │       │   ├── ProductDataBuilder.java
+│   │       │   ├── OrderDataBuilder.java
+│   │       │   └── InventoryDataBuilder.java
+│   │       │
+│   │       ├── exceptions/
+│   │       │   ├── ApiException.java
+│   │       │   ├── InvalidSchemaException.java
+│   │       │   └── RetryFailedException.java
+│   │       │
+│   │       └── clients/
+│   │           ├── ProductClient.java
+│   │           ├── OrderClient.java
+│   │           ├── InventoryClient.java
+│   │           ├── GatewayClient.java
+│   │           └── KafkaEventClient.java
 │   │
-│   ├── test/java/
-│   │   ├── gateway/
-│   │   │   ├── ApiKeyAuthTests.java
-│   │   │   └── RoutingTests.java
-│   │   │
-│   │   ├── services/
-│   │   │   ├── product/ProductTests.java
-│   │   │   ├── order/OrderTests.java
-│   │   │   └── inventory/InventoryTests.java
-│   │   │
-│   │   ├── flows/
-│   │   │   └── OrderPlacementFlowTest.java
-│   │   │
-│   │   ├── containers/
-│   │   │   ├── KafkaTestContainer.java
-│   │   │   ├── ZipkinTestContainer.java
-│   │   │   └── WireMockContainer.java
-│   │   │
-│   │   ├── resiliency/
-│   │   │   ├── RetryTests.java
-│   │   │   ├── CircuitBreakerTests.java
-│   │   │   └── RateLimiterTests.java
-│   │   │
-│   │   └── performance/
-│   │       └── JMeterTests.java (optional)
-│   │
-│   └── test/resources/
-│       ├── wiremock/
-│       ├── schemas/
-│       └── config/
+│   └── test/
+│       └── java/
+│           ├── base/
+│           │   ├── TestBase.java
+│           │   └── TestListeners.java
+│           │
+│           ├── gateway/
+│           │   ├── AuthTests/
+│           │   │   ├── ApiKeyValidationTests.java
+│           │   │   └── JwtValidationTests.java
+│           │   ├── RoutingTests/
+│           │   │   ├── RouteMappingTests.java
+│           │   │   └── FallbackTests.java
+│           │   └── RateLimiterTests/
+│           │       └── RateLimitValidationTests.java
+│           │
+│           ├── services/
+│           │   ├── product/
+│           │   │   ├── CreateProductTests.java
+│           │   │   ├── GetProductTests.java
+│           │   │   └── ContractTests.java
+│           │   ├── order/
+│           │   │   ├── PlaceOrderTests.java
+│           │   │   ├── CancelOrderTests.java
+│           │   │   └── ContractTests.java
+│           │   └── inventory/
+│           │       ├── StockReduceTests.java
+│           │       ├── StockIncreaseTests.java
+│           │       └── ContractTests.java
+│           │
+│           ├── interservice/
+│           │   ├── OrderToProductFlowTests.java
+│           │   ├── OrderToInventoryFlowTests.java
+│           │   └── SagaOrchestrationTests.java
+│           │
+│           ├── events/
+│           │   ├── Kafka/
+│           │   │   ├── OrderCreatedEventTests.java
+│           │   │   └── InventoryUpdatedEventTests.java
+│           │   └── ConsumerTests/
+│           │       └── OrderEventConsumerTests.java
+│           │
+│           ├── resiliency/
+│           │   ├── CircuitBreakerTests.java
+│           │   ├── RetryTests.java
+│           │   ├── TimeoutTests.java
+│           │   └── BulkheadTests.java
+│           │
+│           ├── observability/
+│           │   ├── ZipkinTracePropagationTests.java
+│           │   ├── LogCorrelationTests.java
+│           │   └── MetricsValidationTests.java
+│           │
+│           └── performance/
+│               └── JMeter/
+│                   ├── product-api.jmx
+│                   └── order-api.jmx
 │
-├── pom.xml / build.gradle
-├── docker-compose.yml
-├── README.md
-└── .gitignore
+├── resources/
+│   ├── test-data/
+│   │   ├── product/
+│   │   ├── order/
+│   │   └── inventory/
+│   ├── contracts/
+│   └── schemas/
+│
+├── libs/
+│   ├── rest-client.jar
+│   └── schema-validator.jar
+│
+├── CI-CD/
+│   ├── github-actions.yml
+│   ├── gitlab-ci.yml
+│   ├── jenkinsfile
+│   └── sonar-project.properties
+│
+└── README.md
+
 
 🔗 4. Components Included
 4.1 API Gateway Test Coverage
