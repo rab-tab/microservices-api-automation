@@ -3,6 +3,7 @@
     <test name="API Tests">
         <classes>
             <class name="com.microservices.api.base.SanityTest"/>
+            <class name="com.microservices.api.base.GoogleTest"/>
         </classes>
     </test>
 </suite>

@@ -11,6 +11,7 @@ com/microservices/api/resiliency/BulkheadTests.class
 com/microservices/api/config/EnvironmentConfig.class
 com/microservices/api/observability/ZipkinTracePropagationTests.class
 com/microservices/api/base/BaseTest.class
+com/microservices/api/base/GoogleTest.class
 com/microservices/api/config/ConfigTest.class
 com/microservices/api/observability/MetricsValidationTests.class
 com/microservices/api/resiliency/TimeoutTests.class

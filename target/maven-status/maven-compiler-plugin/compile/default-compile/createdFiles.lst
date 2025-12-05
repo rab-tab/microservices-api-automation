@@ -10,4 +10,5 @@ com/microservices/api/core/BaseService.class
 com/microservices/api/tracing/TraceIdGenerator.class
 com/microservices/api/utils/SchemaUtil.class
 com/microservices/api/tracing/ZipkinClient.class
+com/microservices/api/core/ResponseValidator$ResponseSupplier.class
 com/microservices/api/tracing/TracePropagationInterceptor.class
