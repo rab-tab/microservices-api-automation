@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="microservices-api-automation" target="1.5" />
+      <module name="microservices-api-automation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
