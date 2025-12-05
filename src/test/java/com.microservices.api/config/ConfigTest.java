@@ -4,7 +4,6 @@ import org.aeonbits.owner.ConfigFactory;
 public class ConfigTest {
 
     public static EnvironmentConfig config;
-
     public static void main(String[] args) {
         // Set the environment before creating the config
         System.setProperty("env", "prod");
