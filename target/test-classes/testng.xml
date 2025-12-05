@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Automation Suite" parallel="false">
+    <test name="API Tests">
+        <classes>
+            <class name="com.microservices.api.base.SanityTest"/>
+        </classes>
+    </test>
+</suite>
