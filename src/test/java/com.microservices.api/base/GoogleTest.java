@@ -4,7 +4,6 @@ import com.microservices.api.core.ApiLogger;
 import com.microservices.api.core.RequestBuilder;
 import com.microservices.api.core.ResponseValidator;
 import com.microservices.api.core.RestClient;
-import io.restassured.builder.ResponseBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GoogleTest extends BaseTest {
+public class GoogleTest extends Base {
     String endpoint;
 
     @Test

@@ -26,9 +26,13 @@
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.06" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.17.1" level="project" />
+    <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt-api:0.12.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.jsonwebtoken:jjwt-impl:0.12.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.jsonwebtoken:jjwt-jackson:0.12.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.0" level="project" />
     <orderEntry type="library" name="Maven: io.rest-assured:rest-assured:5.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.groovy:groovy:4.0.22" level="project" />
     <orderEntry type="library" name="Maven: org.apache.groovy:groovy-xml:4.0.22" level="project" />
@@ -43,5 +47,58 @@
     <orderEntry type="library" name="Maven: io.rest-assured:rest-assured-common:5.5.6" level="project" />
     <orderEntry type="library" name="Maven: io.rest-assured:xml-path:5.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.18.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.42" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: redis.clients:jedis:4.4.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.json:json:20230227" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.google.code.gson:gson:2.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.12.0" level="project" />
+    <orderEntry type="library" name="Maven: org.wiremock:wiremock:3.13.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain:jetty-jakarta-servlet-api:5.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlets:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-proxy:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-server:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-common:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-hpack:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-server:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-java-server:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-java-client:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-client:11.0.26" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:33.5.0-jre" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Maven: org.jspecify:jspecify:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.41.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.client5:httpclient5:5.5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.core5:httpcore5:5.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.core5:httpcore5-h2:5.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-core:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:2.3.3" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.activation:jakarta.activation-api:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-legacy:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-placeholders:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: net.javacrumbs.json-unit:json-unit-core:2.40.1" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.jayway.jsonpath:json-path:2.10.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: net.minidev:json-smart:2.6.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: net.minidev:accessors-smart:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.jopt-simple:jopt-simple:5.0.4" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jknack:handlebars:4.3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jknack:handlebars-helpers:4.3.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.19.0" level="project" />
+    <orderEntry type="library" name="Maven: com.networknt:json-schema-validator:1.5.9" level="project" />
+    <orderEntry type="library" name="Maven: com.ethlo.time:itu:1.14.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:2.3" level="project" />
   </component>
 </module>

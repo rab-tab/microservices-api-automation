@@ -1,0 +1,17 @@
+[
+  {
+    "name":"iphone",
+    "price":1200,
+    "quantity":100
+  },
+  {
+    "name":"Computer chair",
+    "price":10000,
+    "quantity":10
+  },
+  {
+    "name":"zincasin",
+    "price":800,
+    "quantity":1
+  }
+]

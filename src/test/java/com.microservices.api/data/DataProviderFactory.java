@@ -6,11 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.Hashtable;
 import java.util.List;
-
-import static com.microservices.api.base.BaseTest.environmentConfig;
 
 public class DataProviderFactory {
 
