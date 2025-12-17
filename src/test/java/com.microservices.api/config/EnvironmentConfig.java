@@ -16,4 +16,22 @@ public interface EnvironmentConfig extends Config {
 
     @Key("timeout.seconds")
     int timeoutSeconds();
+
+    // Auth0 Client Credentials
+    @Key("auth0.domain")
+    String auth0Domain();
+
+    @Key("auth0.client_id")
+    String auth0ClientId();
+
+    @Key("auth0.client_secret")
+    String auth0ClientSecret();
+
+    @Key("auth0.audience")
+    String auth0Audience();
+
+    @Key("auth0.grant_type")
+    String auth0GrantType();
+
+
 }

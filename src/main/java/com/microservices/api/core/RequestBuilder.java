@@ -9,13 +9,62 @@ import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
 
+
 public class RequestBuilder {
-    private static final String BASE_URI = "https://api.example.com";
+    private static volatile String BASE_URI = null;
+
+   /* static {
+        // RuntimeConfig must already be initialized (SuiteInitListener should run first)
+        BASE_URI = RuntimeConfig.getBaseUri();
+        if (BASE_URI == null) {
+            throw new IllegalStateException("BASE_URI not initialized! Check SuiteInitListener");
+        }
+    }*/
+
+    public static void overrideBaseUri(String baseUri) {
+        BASE_URI = baseUri;
+    }
+
+    public static String getBaseUri() {
+        if (BASE_URI != null) {
+            return BASE_URI;
+        }
+
+        synchronized (RequestBuilder.class) {
+            if (BASE_URI == null) {
+
+                // 1️⃣ Highest priority: System property (mvn -D)
+                String fromSysProp = System.getProperty("gateway.base.url");
+                if (fromSysProp != null && !fromSysProp.isBlank()) {
+                    BASE_URI = fromSysProp;
+                    return BASE_URI;
+                }
+
+                // 2️⃣ Environment variable
+                String fromEnv = System.getenv("GATEWAY_BASE_URL");
+                if (fromEnv != null && !fromEnv.isBlank()) {
+                    BASE_URI = fromEnv;
+                    return BASE_URI;
+                }
+
+                // 3️⃣ RuntimeConfig (SuiteInitListener / TestNG)
+                BASE_URI = RuntimeConfig.getBaseUri();
+
+                if (BASE_URI == null || BASE_URI.isBlank()) {
+                    throw new IllegalStateException(
+                            "BASE_URI not initialized. " +
+                                    "Provide via -Dgateway.base.url, env GATEWAY_BASE_URL, or SuiteInitListener"
+                    );
+                }
+            }
+        }
+        return BASE_URI;
+    }
 
     // ---------------- Base Builder (no duplication) ----------------
     private static RequestSpecBuilder base() {
         return new RequestSpecBuilder()
-                .setBaseUri(BASE_URI)
+                .setBaseUri(getBaseUri())
                 .setContentType(ContentType.JSON)
                 .log(io.restassured.filter.log.LogDetail.ALL);
     }
@@ -25,7 +74,7 @@ public class RequestBuilder {
         return base().build();
     }
 
-    // ---------------- Authentication ----------------
+    // ---------------- Request with OAuth2 access token ----------------
     public static RequestSpecification withBearerAuth(String token) {
         return base()
                 .addHeader("Authorization", "Bearer " + token)
@@ -117,5 +166,6 @@ public class RequestBuilder {
 
         return builder.build();
     }
+
 }
 
